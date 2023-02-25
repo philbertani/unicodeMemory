@@ -1,0 +1,69 @@
+
+:root {
+    --maxWidth: 90vw;
+    --flipWidth: max(80px,calc( var(--maxWidth) * .11));
+    --flipHeight: max(80px,calc( var(--maxWidth)*.11));
+}
+
+.flexBox01 {
+    margin-top: 2vh;
+    margin-left: 4.5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: var(--maxWidth)
+}
+
+.gameMessages {
+  text-align: center;
+}
+
+/* The flip card container - set the width and height to whatever you want. 
+    We have added the border property to demonstrate that the flip itself goes out of the box on hover 
+    (remove perspective if you don't want the 3D effect */
+.flip-card {
+    flex: 0 1 var(--flipWidth);
+    background-color: transparent;
+    width: var(--flipWidth);
+    height: var(--flipHeight);
+    border: 1px solid #f1f1f1;
+    perspective: 200px; /* Remove this if you don't want the 3D effect */
+    margin:2px; margin-top:4px; margin-bottom:4px;
+    user-select: none;
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+  }
+  
+  .flip-card-inner-toggle {
+    transform: rotateY(180deg); 
+  }
+  
+  /* Position the front and back side */
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flip-card-front {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flip-card-back {
+    background-color: rgba(144, 13, 209, .5);
+    color: white;
+    transform: rotateY(180deg);
+  }
